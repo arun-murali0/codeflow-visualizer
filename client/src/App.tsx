@@ -1,8 +1,8 @@
-
+// app or home
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+	return <section>
+    
+  </section>;
+};
 
-export default App
+export default App;
