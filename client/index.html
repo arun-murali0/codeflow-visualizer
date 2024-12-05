@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dynamic Flowchart Viewer</title>
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"
+		></script>
+		<style>
+			#mermaid-container {
+				margin-top: 20px;
+				border: 1px solid #ccc;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Dynamic Flowchart Viewer</h1>
+		<input type="text" id="projectPath" placeholder="Enter project path" />
+		<button id="generateBtn">Generate Flowchart</button>
+
+		<div id="mermaid-container"></div>
+
+		<script>
+			document.getElementById('generateBtn').addEventListener('click', function () {
+				
+
+
+
+                
+				fetch(`/generate-flowchart`)
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.mermaidCode) {
+							// Display the Mermaid code in the container
+							const container = document.getElementById('mermaid-container');
+							container.innerHTML = `\`\`\`mermaid\n${data.mermaidCode}\n\`\`\``;
+
+							// Initialize Mermaid and render the chart
+							mermaid.contentLoaded();
+						} else {
+							console.error('Failed to generate flowchart:', data.error);
+						}
+					})
+					.catch((error) => console.error('Error fetching flowchart:', error));
+			});
+		</script>
+	</body>
+</html>
