@@ -1,5 +1,7 @@
 import { password_to_hash } from '../../utils/bcrypt-hash';
 import { userValidationSchema } from '../validation/userSchema';
+import { customError } from '../errors/ErrorHandler';
+import { UserProp } from '../../types';
 
 export const userEntities = async (userDetails: UserProp): Promise<UserProp> => {
 	try {

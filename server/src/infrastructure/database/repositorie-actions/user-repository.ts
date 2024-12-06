@@ -1,4 +1,5 @@
 import { users } from '../models/user-model';
+import {UserProp} from "../../../types"
 
 export const userRepositories = {
 	// creating a new user

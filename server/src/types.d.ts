@@ -1,4 +1,4 @@
-interface UserProp {
+export interface UserProp {
 	_id?: string;
 	firstName: string;
 	userName: string;
@@ -6,5 +6,3 @@ interface UserProp {
 	email: string;
 	password: string;
 }
-
-

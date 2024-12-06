@@ -1,5 +1,5 @@
 // custom error handler
-class customError extends Error {
+export class customError extends Error {
 	errorMessage: string;
 	errorcode: number;
 
@@ -13,22 +13,4 @@ class customError extends Error {
 	}
 }
 
-// validation error
-class validationError extends customError {
-	constructor(message: string) {
-		super(message, 400);
-		{
-			this.name = 'validation Error';
-		}
-	}
-}
 
-// Not found error
-class NotFoundError extends customError {
-	constructor(message: string) {
-		super(message, 404);
-		{
-			this.name = 'Not found';
-		}
-	}
-}

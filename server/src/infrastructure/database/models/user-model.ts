@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+import { UserProp } from '../../../types';
 
 const user: Schema = new mongoose.Schema<UserProp>({
 	firstName: {

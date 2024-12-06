@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import passport from 'passport';
+import { UserProp } from '../../types';
 
 export const authenticateUser = (_req: Request, res: Response, next: NextFunction) => {
 	passport.authenticate('local', (err: any, user: UserProp, info: any) => {

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { userController } from '../controllers/userController';
 import { authenticateUser } from '../middelwares/passport';
-import "../../use-cases/auth/local-strategy"
+import "../../framework/passport/local-strategy"
 
 const router = Router();
 

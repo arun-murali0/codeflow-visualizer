@@ -1,6 +1,6 @@
 import { Strategy } from 'passport-local';
 import passport, { DoneCallback } from 'passport';
-
+import { UserProp } from '../../types';
 import { userRepositories } from '../../infrastructure/database/repositorie-actions/user-repository';
 import { verify_hashed_password } from '../../utils/bcrypt-hash';
 
