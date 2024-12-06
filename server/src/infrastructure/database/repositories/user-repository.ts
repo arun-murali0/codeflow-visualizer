@@ -2,17 +2,22 @@ import { users } from '../models/user-model';
 
 export const userRepositories = {
 	// creating a new user
-	create: async (userDetails: string): Promise<any> => {
+	create: async (userDetails: string): Promise<UserProp> => {
 		return await users.create(userDetails);
 	},
 
 	// find user by email
-	findByEmail: async (email: string): Promise<string | null> => {
+	findByEmail: async (email: string): Promise<UserProp | null> => {
 		return await users.findOne({ email: email });
 	},
 
+	// find user by id
+	findByID: async (id: string): Promise<UserProp | null> => {
+		return await users.findOne({ _id: id });
+	},
+
 	// find user by username
-	findUserByUserName: async (username: string): Promise<string | null> => {
+	findUserByUserName: async (username: string): Promise<UserProp | null> => {
 		return await users.findOne({ userName: username });
 	},
 };
