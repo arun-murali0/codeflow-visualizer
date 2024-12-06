@@ -2,7 +2,7 @@ import { users } from '../models/user-model';
 
 export const userRepositories = {
 	// creating a new user
-	create: async (userDetails: string): Promise<UserProp> => {
+	create: async (userDetails: UserProp): Promise<UserProp> => {
 		return await users.create(userDetails);
 	},
 

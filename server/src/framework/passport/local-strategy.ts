@@ -1,12 +1,12 @@
 import { Strategy } from 'passport-local';
 import passport, { DoneCallback } from 'passport';
 
-import { userRepositories } from '../../infrastructure/database/repositories/user-repository';
+import { userRepositories } from '../../infrastructure/database/repositorie-actions/user-repository';
 import { verify_hashed_password } from '../../utils/bcrypt-hash';
 
 // password serialise
 passport.serializeUser((user: Pick<UserProp, '_id'>, done: DoneCallback) => {
-	return done(null, user);
+	return done(null, user._id);
 });
 
 // deserialize
