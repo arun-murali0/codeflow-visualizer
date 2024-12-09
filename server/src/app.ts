@@ -1,16 +1,12 @@
 import express from 'express';
-import passport from 'passport';
-import Routes from './interface-adapter/routes/routes';
+import { databaseConnection } from './db';
+
 const app = express();
 
 // middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// routes
-app.use('/', Routes);
+databaseConnection();
 
 export { app };

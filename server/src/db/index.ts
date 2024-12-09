@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import { config } from '../../config/config';
+import { config } from '../config';
 
-// primaty database
-export const databaseConnection = async (): Promise<void> => {
+// database connection
+export const databaseConnection = async () => {
 	try {
 		const connection = await mongoose.connect(config.MONGO_STRING!);
 		if (connection) {
-			console.info('database connected');
+			console.info('connection established');
 		}
 	} catch (error) {
 		console.error({ error: error });
@@ -14,9 +14,9 @@ export const databaseConnection = async (): Promise<void> => {
 	}
 };
 
-// gracefull shutdown
+// shutdown gracefully
 process.on('SIGINT', async () => {
 	mongoose.disconnect();
-	console.info('system shutdown gracefully');
+	console.info('shutdown gracefully');
 	process.exit(0);
 });
