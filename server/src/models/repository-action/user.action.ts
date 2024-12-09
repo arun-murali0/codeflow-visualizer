@@ -1,17 +1,16 @@
+import { UserProp } from '../../types';
 import { User } from '../data-schema/user-schema';
 
-import { UserProp } from '../../types';
-
 export const userRepository = {
-	create: async (userData: UserProp): Promise<UserProp | null> => {
-		return User.create(userData);
-	},
-
-	findById: async (id: string): Promise<UserProp | null> => {
-		return User.findOne({ _id: id }).exec();
+	create: async (userDetails: UserProp): Promise<UserProp | null> => {
+		return await User.create(userDetails);
 	},
 
 	findByEmail: async (email: string): Promise<UserProp | null> => {
-		return User.findOne({ email: email }).exec();
+		return await User.findOne({ email: email });
+	},
+
+	findById: async (id: string): Promise<UserProp | null> => {
+		return await User.findOne({ _id: id });
 	},
 };

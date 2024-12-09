@@ -1,3 +1,3 @@
-import { CreateNewUser } from './auth/createNewUser';
+import { createNewUser } from './auth/createNewUser';
 
-export { CreateNewUser };
+export { createNewUser };
