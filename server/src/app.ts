@@ -5,6 +5,7 @@ import passport from 'passport';
 import session from 'express-session';
 const app = express();
 import { config } from './config';
+import { errorHandler } from './utils/errorHandler';
 
 // middleware
 app.use(express.json());
@@ -19,14 +20,17 @@ app.use(
 	})
 );
 
-// passport
-app.use(passport.session());
-app.use(passport.initialize());
-
 // db
 databaseConnection();
 
+// passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // routes
 app.use('/api', Routes);
+
+// error handler
+app.use(errorHandler);
 
 export { app };
