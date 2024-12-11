@@ -5,7 +5,7 @@ import passport from 'passport';
 import session from 'express-session';
 const app = express();
 import { config } from './config';
-import { errorHandler } from './utils/errorHandler';
+import { errorHandler } from './middlewares/ErrorHandler';
 
 // middleware
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use(passport.session());
 // routes
 app.use('/api', Routes);
 
-// error handler
-app.use(errorHandler);
+
+app.use(errorHandler)
 
 export { app };
