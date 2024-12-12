@@ -12,6 +12,7 @@ import { errorHandler } from './middlewares/errorHandler';
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// session
 app.use(
 	session({
 		secret: config.SECRET!,
@@ -25,12 +26,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// db
+databaseConnection();
+
 // routes
 app.use('/api', Routes);
 
+// error Handler
 app.use(errorHandler);
-
-// db
-databaseConnection();
 
 export { app };

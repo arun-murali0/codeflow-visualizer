@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { userServices } from '../../services/userService';
+import { userServices } from '../../services/user/userService';
 import { passwordToHash } from '../../utils/bcrypt-hashing';
 import { customError } from '../../utils/errorHandler';
 

@@ -1,6 +1,6 @@
 import passport, { DoneCallback } from 'passport';
 import { Strategy as localStrategy } from 'passport-local';
-import { userServices } from '../services/userService';
+import { userServices } from '../services/user/userService';
 import { comparePassword } from './bcrypt-hashing';
 import { UserProp } from '../types';
 import { customError } from './errorHandler';
@@ -41,7 +41,6 @@ passport.use(
 				done(null, user);
 			} catch (error) {
 				done(error);
-				throw new customError(error.message, 400);
 			}
 		}
 	)

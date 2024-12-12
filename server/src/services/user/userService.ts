@@ -1,5 +1,5 @@
-import { UserProp } from '../types';
-import { userRepository } from '../models/repository-action/user.action';
+import { UserProp } from '../../types';
+import { userRepository } from '../../models/repository-action/user.action';
 
 export const userServices = {
 	// new user

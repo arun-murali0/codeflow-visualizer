@@ -7,6 +7,6 @@ const router = Router();
 
 // user Routes
 router.post('/sign-up', createNewUser);
-router.post('/login', passport.authenticate('local'), userLogin);
+router.post('/sign-in', passport.authenticate('local'), userLogin);
 
 export default router;

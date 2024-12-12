@@ -15,9 +15,11 @@ export const userLogin = (req: Request, res: Response) => {
 
 		if (user) {
 			res.status(200).json({ message: 'Login successful' });
+		}else{
+			res.redirect("/sign-in")
 		}
 
-		res.redirect('/login');
+		
 	} catch (error) {
 		throw new customError(error.message, 400);
 	}
