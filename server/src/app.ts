@@ -3,9 +3,10 @@ import { databaseConnection } from './db';
 import Routes from './routes';
 import passport from 'passport';
 import session from 'express-session';
+
 const app = express();
 import { config } from './config';
-import { errorHandler } from './middlewares/ErrorHandler';
+import { errorHandler } from './middlewares/errorHandler';
 
 // middleware
 app.use(express.json());
@@ -20,9 +21,6 @@ app.use(
 	})
 );
 
-// db
-databaseConnection();
-
 // passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -30,7 +28,9 @@ app.use(passport.session());
 // routes
 app.use('/api', Routes);
 
+app.use(errorHandler);
 
-app.use(errorHandler)
+// db
+databaseConnection();
 
 export { app };
